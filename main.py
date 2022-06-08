@@ -30,8 +30,8 @@ def init():
     # empresa_1.contratar_funcionario(gerente_1.__dict__)
     # empresa_1.contratar_funcionario(gerente_2.__dict__)
 
-    # empresa_2 = Company(" golden state warriors  ", "12345678910111")
-    # funcionario_3 = Employee("lamelo  ball souza ", "98778965434")
+    empresa_2 = Company(" golden state warriors  ", "12345678910111")
+    funcionario_3 = Employee("lamelo  ball souza ", "98778965434")
     # empresa_2.contratar_funcionario(funcionario_3.__dict__)
 
     # resposta = gerente_1.adicionar_funcionario(funcionario_1)
@@ -46,10 +46,22 @@ def init():
     # print(f'FUNCIONARIOS: {len(gerente_1)}')
 
     print(empresa_1.contratar_funcionario(funcionario_1))
-    print(empresa_1.hired)
+    print(vars(empresa_1.hired[0]))
 
     print(empresa_1.contratar_funcionario(funcionario_1))
     print(empresa_1.hired)
+
+    print(empresa_1.gerar_horelite(funcionario_1))
+
+    print(empresa_2.contratar_funcionario(funcionario_3))
+
+    print(empresa_2.gerar_horelite(funcionario_3))
+
+    # print(gerente_1.adicionar_funcionario(funcionario_1))
+    # print(vars(gerente_1.employees[0]))
+
+    # print(gerente_1.adicionar_funcionario(funcionario_1))
+    # print(vars(gerente_1.employees[0]))
 
 
 if __name__ == "__main__":

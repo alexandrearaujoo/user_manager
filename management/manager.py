@@ -12,7 +12,6 @@ class Manager(Employee):
 
     def adicionar_funcionario(self, employee):   
         if not employee in self.employees:
-            self.employees.append(vars(employee))
-            print(self.employees)
+            self.employees.append(employee)
             return True
         return False

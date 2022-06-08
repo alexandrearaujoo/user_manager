@@ -12,28 +12,24 @@ class Company:
         return len(self.hired)
 
     def contratar_funcionario(self,employee):
-        new_employee = vars(employee)
+        
 
-        new_employee['email'] = f'{new_employee["full_name"].replace(" ", "_").lower()}@{self.name.replace(" ", "").lower()}.com'
-        new_employee['empresa'] = self.name
+        employee.email = f'{employee.full_name.replace(" ", "_").lower()}@{self.name.replace(" ", "").lower()}.com'
+        employee.empresa = self.name
 
-        if len(self.hired) == 0:
-            self.hired.append(new_employee)
+        if not employee in self.hired:
+            self.hired.append(employee)
             return 'Funcionario cadastrado'
 
-        for value in self.hired:
-            if value["cpf"] == new_employee["cpf"]:
-                return 'CPF ja cadastrado'
-        
-        self.hired.append(new_employee)
+        return 'CPF ja cadastrado'
         
 
     def gerar_horelite(self, employee):
-        new_employee = vars(employee)
+
+        if not employee.empresa == self.name:
+           return False
 
         os.makedirs (f'./empresas/{self.name.lower().replace(" ", "_")}', exist_ok=True)
-        with open(f'./empresas/{self.name.lower().replace(" ", "_")}/{new_employee["full_name"].lower().replace(" ", "_")}.json', 'w') as employee_file:
-            json.dump(new_employee, employee_file, indent=4)
-
-        
+        with open(f'./empresas/{self.name.lower().replace(" ", "_")}/{employee.full_name.lower().replace(" ", "_")}.json', 'w') as employee_file:
+            json.dump(vars(employee), employee_file, indent=4)
 
