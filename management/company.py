@@ -38,7 +38,7 @@ class Company():
         os.makedirs (f'./companies/{company_name_formated}', exist_ok=True)
         with open(f'./companies/{company_name_formated}/{full_name_formated}.json', 'w') as employee_file:
             json.dump(vars(employee), employee_file, indent=4)
-            return f"{employee.full_name}'s paycheck generated"
+            return f"{employee.full_name}'s horelite generated"
 
 
     @staticmethod
