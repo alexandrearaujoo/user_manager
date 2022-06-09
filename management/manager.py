@@ -19,6 +19,8 @@ class Manager(Employee):
             self.employees.append(employee)
             return True
 
+        return 'CPF already registered'
+
     def salary_increase(self, company, employee):
         if not employee in self.employees:
             return False
