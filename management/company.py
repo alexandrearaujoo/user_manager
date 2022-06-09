@@ -22,7 +22,7 @@ class Company():
 
         if not employee in self.hired:
             self.hired.append(employee)
-            return 'Registered employee'
+            return f'Registered {employee.full_name} on {self.name}'
 
         return 'CPF already registered'
         
@@ -38,6 +38,7 @@ class Company():
         os.makedirs (f'./companies/{company_name_formated}', exist_ok=True)
         with open(f'./companies/{company_name_formated}/{full_name_formated}.json', 'w') as employee_file:
             json.dump(vars(employee), employee_file, indent=4)
+            return f"{employee.full_name}'s paycheck generated"
 
 
     @staticmethod
