@@ -45,24 +45,74 @@ def init():
 
     # print(f'FUNCIONARIOS: {len(gerente_1)}')
 
-    print(empresa_1.contratar_funcionario(funcionario_1))
-    print(vars(empresa_1.hired[0]))
+    # print(empresa_1.contratar_funcionario(funcionario_1))
+    # print(vars(empresa_1.hired[0]))
 
-    print(empresa_1.contratar_funcionario(funcionario_1))
-    print(empresa_1.hired)
+    # print(empresa_1.contratar_funcionario(funcionario_1))
+    # print(empresa_1.hired)
 
-    print(empresa_1.gerar_horelite(funcionario_1))
+    # print(empresa_1.gerar_horelite(funcionario_1))
 
-    print(empresa_2.contratar_funcionario(funcionario_3))
+    # print(empresa_2.contratar_funcionario(funcionario_3))
 
-    print(empresa_2.gerar_horelite(funcionario_3))
-
-    # print(gerente_1.adicionar_funcionario(funcionario_1))
-    # print(vars(gerente_1.employees[0]))
+    # print(empresa_2.gerar_horelite(funcionario_3))
 
     # print(gerente_1.adicionar_funcionario(funcionario_1))
     # print(vars(gerente_1.employees[0]))
 
+    # print(gerente_1.adicionar_funcionario(funcionario_1))
+    # print(vars(gerente_1.employees[0]))
+
+    # print(empresa_1.contratar_funcionario(funcionario_1))
+
+    # empresa_1.gerar_horelite(funcionario_1)
+
+    # holerite = Company.ler_horelite(empresa_1, funcionario_1)
+
+    # print(holerite)
+
+    empresa_1 = Company("  kenzie   brasil ", 12345678910124)
+
+    funcionario_1 = Employee(" jordan  cardoso poole ", 32112343215)
+
+    gerente_1 = Manager(" bill    gates ", "32132186712")
+    gerente_2 = Manager("elon musk", "12342186574")
+
+    empresa_1.contratar_funcionario(funcionario_1)
+
+    empresa_1.contratar_funcionario(gerente_1)
+
+    empresa_1.contratar_funcionario(gerente_2)
+
+    gerente_1.adicionar_funcionario(funcionario_1)
+
+    funcionario_2 = Employee("klay mota thompson ", 92478965434)
+
+    empresa_1.gerar_horelite(funcionario_1)
+
+    holerite = Company.ler_horelite(empresa_1 ,funcionario_1)
+
+    print(holerite)
+
+    print(len(empresa_1.hired))
+
+    resposta = empresa_1.demissao(funcionario_1)
+
+    print(resposta) 
+
+    resposta = empresa_1.demissao(gerente_1) 
+
+    print(resposta) 
+
+    print(len(gerente_1.employees)) 
+
+    resposta = empresa_1.demissao(funcionario_1)
+
+    # print(resposta) 
+
+    print(len(gerente_1.employees))
+
+    print(len(empresa_1.hired)) 
 
 if __name__ == "__main__":
     init()
