@@ -1,56 +1,83 @@
-from management.manager import Manager
 import os
 import ujson as json
 
+from helpers import remove_space, snake_case
 
-class Company(Manager):
+
+class Company():
 
     def __init__(self, name, cnpj, hired = []) -> None:
-        self.name = name.title()
+        self.name = remove_space(name).title()
         self.cnpj = cnpj
         self.hired = hired
 
     def __len__(self):
         return len(self.hired)
 
-    def contratar_funcionario(self,employee):
+    def hire_employee(self,employee):
+        full_name_formated = snake_case(employee.full_name).lower()
         
-
-        employee.email = f'{employee.full_name.replace(" ", "_").lower()}@{self.name.replace(" ", "").lower()}.com'
-        employee.empresa = self.name
+        employee.email = f'{full_name_formated}@{self.name.replace(" ", "").lower()}.com'
+        employee.company = self.name
 
         if not employee in self.hired:
             self.hired.append(employee)
-            return 'Funcionario cadastrado'
+            return 'Registered employee'
 
-        return 'CPF ja cadastrado'
+        return 'CPF already registered'
         
 
-    def gerar_horelite(self, employee):
+    def generate_horelite(self, employee):
+        full_name_formated = snake_case(employee.full_name).lower()
+        company_name_formated = snake_case(self.name).lower()
 
-        if not employee.empresa == self.name:
+
+        if not employee.company == self.name:
            return False
 
-        os.makedirs (f'./empresas/{self.name.lower().replace(" ", "_")}', exist_ok=True)
-        with open(f'./empresas/{self.name.lower().replace(" ", "_")}/{employee.full_name.lower().replace(" ", "_")}.json', 'w') as employee_file:
+        os.makedirs (f'./companies/{company_name_formated}', exist_ok=True)
+        with open(f'./companies/{company_name_formated}/{full_name_formated}.json', 'w') as employee_file:
             json.dump(vars(employee), employee_file, indent=4)
 
 
     @staticmethod
-    def ler_horelite(company, employee):
+    def read_horelite(company, employee):
+        try:
+            company_name_formated = snake_case(company.name).lower()
+            full_name_formated = snake_case(employee.full_name).lower()
 
-        with open(f'./empresas/{company.name.lower().replace(" ", "_")}/{employee.full_name.lower().replace(" ", "_")}.json') as file:
-            return json.load(file)
+            with open(f'./companies/{company_name_formated}/{full_name_formated}.json') as file:
+                return json.load(file)
+        except:
+            return "Horelite does not exists"
 
-    def demissao(self, employee):
+    def resignation(self, employee):
+        if employee in self.hired:
+            self.hired.remove(employee)
 
-        if not employee.empresa == self.name:
-            return 'Esse funcionario não pertence a essa empresa'
+            if employee.function == 'Employee':
+                for value in self.hired:
+                    if value.function == 'Manager':
+                        value.employees.remove(employee)
 
-        if not employee in self.hired:
-            return 'Este funcionario nao existe'
+            return f'{employee.function} fired'
+        
+        else:
+            return 'CPF does not exists'
 
-        self.hired.remove(employee)
-        return 'Funcionario demitido'
+    def promotion(self, employee):
+            if not employee in self.hired:
+                return 'Employee does not exists'
+            
+            if not employee.function == 'Employee':
+                return 'Promoted employee'
+
+            employee.function = 'Manager'
+
+            return employee
+            
+
+
+        
         
 

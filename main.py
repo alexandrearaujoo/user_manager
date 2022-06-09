@@ -20,18 +20,18 @@ def init():
     # empresa_1.gerar_horelite(funcionario_1.__dict__)
     # empresa_1.gerar_horelite(funcionario_2.__dict__)
 
-    gerente_1 = Manager(" bill    gates ", "32132186712", 10000)
+    # gerente_1 = Manager(" bill    gates ", "32132186712", 10000)
     # gerente_2 = Manager(" billaaa", "32132186717", 10000)
 
-    empresa_1 = Company("  kenzie    brasil ", "12345678910124")
-    funcionario_1 = Employee(" jordan  cardoso poole ", "32112343215")
+    # empresa_1 = Company("  kenzie    brasil ", "12345678910124")
+    # funcionario_1 = Employee(" jordan  cardoso poole ", "32112343215")
 
     # empresa_1.contratar_funcionario(funcionario_1.__dict__)
     # empresa_1.contratar_funcionario(gerente_1.__dict__)
     # empresa_1.contratar_funcionario(gerente_2.__dict__)
 
-    empresa_2 = Company(" golden state warriors  ", "12345678910111")
-    funcionario_3 = Employee("lamelo  ball souza ", "98778965434")
+    # empresa_2 = Company(" golden state warriors  ", "12345678910111")
+    # funcionario_3 = Employee("lamelo  ball souza ", "98778965434")
     # empresa_2.contratar_funcionario(funcionario_3.__dict__)
 
     # resposta = gerente_1.adicionar_funcionario(funcionario_1)
@@ -71,48 +71,59 @@ def init():
 
     # print(holerite)
 
-    empresa_1 = Company("  kenzie   brasil ", 12345678910124)
+    # empresa_1 = Company("  kenzie   brasil ", 12345678910124)
 
-    funcionario_1 = Employee(" jordan  cardoso poole ", 32112343215)
+    # funcionario_1 = Employee(" jordan  cardoso poole ", 32112343215)
 
-    gerente_1 = Manager(" bill    gates ", "32132186712")
-    gerente_2 = Manager("elon musk", "12342186574")
+    # gerente_1 = Manager(" bill    gates ", "32132186712")
+    # gerente_2 = Manager("elon musk", "12342186574")
 
-    empresa_1.contratar_funcionario(funcionario_1)
+    # empresa_1.contratar_funcionario(funcionario_1)
 
-    empresa_1.contratar_funcionario(gerente_1)
+    # empresa_1.contratar_funcionario(gerente_1)
 
-    empresa_1.contratar_funcionario(gerente_2)
+    # empresa_1.contratar_funcionario(gerente_2)
 
-    gerente_1.adicionar_funcionario(funcionario_1)
+    # gerente_1.adicionar_funcionario(funcionario_1)
 
-    funcionario_2 = Employee("klay mota thompson ", 92478965434)
+    # funcionario_2 = Employee("klay mota thompson ", 92478965434)
 
-    empresa_1.gerar_horelite(funcionario_1)
+    # empresa_1.gerar_horelite(funcionario_1)
 
-    holerite = Company.ler_horelite(empresa_1 ,funcionario_1)
+    # holerite = Company.ler_horelite(empresa_1 ,funcionario_1)
 
-    print(holerite)
+    # print(holerite)
 
-    print(len(empresa_1.hired))
+    # print(len(empresa_1.hired))
 
-    resposta = empresa_1.demissao(funcionario_1)
-
-    print(resposta) 
-
-    resposta = empresa_1.demissao(gerente_1) 
-
-    print(resposta) 
-
-    print(len(gerente_1.employees)) 
-
-    resposta = empresa_1.demissao(funcionario_1)
+    # resposta = empresa_1.demissao(funcionario_1)
 
     # print(resposta) 
 
-    print(len(gerente_1.employees))
+    # print(len(gerente_1.employees)) 
 
-    print(len(empresa_1.hired)) 
+    # # print(resposta) 
+
+    # print(len(gerente_1.employees))
+
+    # print(len(empresa_1.hired)) 
+
+    alexandre = Employee('alexandre    araujo', '11111111')
+    luiz = Employee('luiz', '111111121')
+    ias = Employee('ias', '55555555')
+    empresa = Company('   empresa teste  ', '11111111111')
+    empresa2 = Company('empresa2 teste', '22222222222')
+    paulo = Manager('paulo', '11111111')
+
+    empresa.contratar_funcionario(alexandre)
+    empresa.contratar_funcionario(luiz)
+    empresa.contratar_funcionario(paulo)
+    empresa2.contratar_funcionario(ias)
+
+    print(empresa.gerar_horelite(alexandre))
+
+    print(empresa.ler_horelite(empresa, alexandre))
+
 
 if __name__ == "__main__":
     init()
