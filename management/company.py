@@ -53,18 +53,20 @@ class Company():
             return "Horelite does not exists"
 
     def resignation(self, employee):
-        if employee in self.hired:
-            self.hired.remove(employee)
-
-            if employee.function == 'Employee':
-                for value in self.hired:
-                    if value.function == 'Manager':
-                        value.employees.remove(employee)
-
-            return f'{employee.function} fired'
-        
-        else:
+        if not employee in self.hired:
             return 'CPF does not exists'
+
+        if employee.function == 'Manager':
+            self.hired.remove(employee)
+            return f'{employee.function}: {employee.full_name} fired'
+
+        if employee in self.hired:
+            for value in self.hired:
+                if value.function == 'Manager':
+                    self.hired.remove(employee)
+                    value.employees.remove(employee)
+                    return f'{employee.function}: {employee.full_name} fired'
+
 
     def promotion(self, employee):
             if not employee in self.hired:
