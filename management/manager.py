@@ -25,6 +25,9 @@ class Manager(Employee):
         if not employee in self.employees:
             return False
 
+        if not employee.company == company.name:
+            return 'Employee does not belong to this company'
+
         new_wage = 10 * employee.wage / 100
         employee.wage += new_wage
 

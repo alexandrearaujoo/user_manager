@@ -75,7 +75,10 @@ class Company():
                 return 'Employee does not exists'
             
             if not employee.function == 'Employee':
-                return 'Promoted employee'
+                return 'Unable to promote a manager'
+
+            if not employee.company == self.name:
+                return 'Employee does not belong to this company'
 
             employee.function = 'Manager'
 
