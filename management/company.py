@@ -61,6 +61,8 @@ class Company():
             return f'{employee.function}: {employee.full_name} fired'
 
         if employee in self.hired:
+            if not employee.company == self.name:
+                return 'Employee does not belong to this company'
             for value in self.hired:
                 if value.function == 'Manager':
                     self.hired.remove(employee)
