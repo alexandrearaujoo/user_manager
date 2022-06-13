@@ -4,9 +4,9 @@ from management.employee import Employee
 class Manager(Employee):
     function = 'Manager'
 
-    def __init__(self, full_name, cpf, wage = 8000, employees = []):
+    def __init__(self, full_name, cpf, wage = 8000):
         Employee.__init__(self, full_name, cpf, wage)
-        self.employees = employees
+        self.employees = []
 
     def __len__(self):
         return len(self.employees)

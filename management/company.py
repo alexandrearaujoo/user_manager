@@ -6,10 +6,10 @@ from helpers import remove_space, snake_case
 
 class Company():
 
-    def __init__(self, name, cnpj, hired = []) -> None:
+    def __init__(self, name, cnpj) -> None:
         self.name = remove_space(name).title()
         self.cnpj = cnpj
-        self.hired = hired
+        self.hired = []
 
     def __len__(self):
         return len(self.hired)
